@@ -1,0 +1,38 @@
+@import '../../theme/commons';
+
+
+.appbar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+    background-color: white;
+    color: $primary_color;
+
+    padding: 16px;
+    
+    @media screen and (min-width: 600px) {
+        padding: 16px 32px;
+    }
+    @media screen and (min-width: 800px) {
+        padding: 16px 44px;
+    }
+    @media screen and (min-width: 1000px) {
+        padding: 16px 64px;
+    }
+}
+
+.appbar__logo {
+    font-family: 'Oswald', Arial, Helvetica, sans-serif;
+}
+
+.appbar__icon {
+    font-size: 1.6rem;
+}
