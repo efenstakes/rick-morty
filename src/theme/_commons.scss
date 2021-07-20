@@ -1,0 +1,37 @@
+$primary_color: #8D5524;
+$secondary_color: #50c8ff;
+$tertiary_color: #6a64ff;
+
+$success_color: #17e96b;
+$error_color: #e02222;
+$warning_color: #ffd534;
+$black_color: rgba(0, 0, 0, .6);
+
+
+.app_button {
+    margin-right: 16px;
+    font-size: .8rem;
+    text-transform: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text_centered {
+    text-align: center;
+}
+
+.padded_container {
+    padding: 16px;
+
+    @media screen and (min-width: 600px) {
+        padding: 16px 32px;
+    }
+    @media screen and (min-width: 800px) {
+        padding: 16px 44px;
+    }
+    @media screen and (min-width: 1000px) {
+        padding: 16px 64px;
+    }
+}
