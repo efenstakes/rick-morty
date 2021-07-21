@@ -1,0 +1,19 @@
+@import '../../theme/commons';
+@import '../../theme/animator';
+
+
+.loading_character_card {
+    position: relative;
+    height: 220px;
+    width: 100%; // 175px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: lighten(lightgrey, 10);
+    
+    @media screen and (min-width: 800px) {
+        height: 260px; 
+    }
+}
+.loading_character_card::after {
+    @include content_loader;
+}
