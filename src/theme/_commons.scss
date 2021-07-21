@@ -1,3 +1,5 @@
+@import './animator';
+
 $primary_color: #8D5524;
 $secondary_color: #50c8ff;
 $tertiary_color: #6a64ff;
@@ -34,4 +36,24 @@ a {
     @media screen and (min-width: 1000px) {
         padding: 16px 64px;
     }
+}
+
+
+
+@keyframes swing {
+    from {
+        transform: translateX(-600px);
+    }
+    to {
+        transform: translateX(600px);
+    }
+}
+
+.loading {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+}
+.loading::after {
+    @include content_loader;
 }

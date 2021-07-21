@@ -1,5 +1,6 @@
 
 
+
 @keyframes slide_up {
     from {
         transform: translateY(160px);
@@ -40,5 +41,32 @@
         @include fd_mixin(
                     $duration: 400ms, $delay: calc( #{$num}*40ms )
                  );
+    }
+}
+
+
+
+@mixin content_loader {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 120%;
+    background-color: lightgray;
+    filter: opacity(0.2) blur(2px);
+    transition: 200ms;
+
+    animation-name: loading_content_kf;
+    animation-duration: 1.6s;
+    animation-timing-function: ease-in-out;
+    animation-direction: normal;
+    animation-iteration-count: infinite;  
+}
+
+@keyframes loading_content_kf {
+    from {
+        transform: translateX(-400px);
+    }
+    to {
+        transform: translateX(400px);
     }
 }

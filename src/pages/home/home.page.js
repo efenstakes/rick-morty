@@ -8,6 +8,7 @@ import AppbarComponent from '../../components/appbar/appbar.component'
 import FooterComponent from '../../components/footer/footer.component'
 import CharacterCardComponent from '../../components/character_card/character_card.component'
 import HSpacerComponent from '../../components/h_spacer/h_spacer.component'
+import LoadingCharacterCardComponent from '../../components/loading_character_card/loading_character_card.component'
 
 import './home.page.scss'
 
@@ -15,42 +16,45 @@ const HomePage = () => {
     const { loading, error, data } = useQuery(queries.GET_CHARACTERS)
 
 
-    if( loading ) {
-        return (
-            <div>
-                loading...
-            </div>
-        )
-    }
+
     if( error ) {
         return (
-            <div>
+            <div style={{}}>
                 error occured
             </div>
         )
     }
-    console.log('data ', data.characters.results)
-    const characters = data.characters.results
+    const characters = data && data.characters.results ? data.characters.results : null
     return (
         <div>
 
             {/* app bar */}
             <AppbarComponent />
             <HSpacerComponent space={8} />
-
+            
             {/* list of characters */}
             <div className="character_grid">
-            {
-                characters.map((character, i)=> {
+                {
+                    loading &&
+                        [1, 2, 3, 4, 5, 6, 7].map((num)=> {
 
-                    return (
-                        <CharacterCardComponent
-                            key={i}
-                            character={character}
-                        />
-                    )
-                })
-            }
+                            return (
+                                <LoadingCharacterCardComponent key={num} />
+                            )
+                        })
+                }
+                {
+                    characters &&
+                        characters.map((character, _i)=> {
+
+                            return (
+                                <CharacterCardComponent
+                                    key={character.id}
+                                    character={character}
+                                />
+                            )
+                        })
+                }
             </div>
             <HSpacerComponent space={4} />
 
